@@ -1,0 +1,448 @@
+<?xml version="1.0" ?>
+
+<!-- Robot description-->
+<robot name="bcn3d_moveo">
+
+  <!-- ================================== -->
+  <!-- MANIPULATOR -->
+  <!-- ================================== -->
+
+  <!-- Link_0 (Base) -->  
+  <link name="Link_0">
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Base.STL" scale="0.000001 0.000001 0.000001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Base.STL" scale="0.000001 0.000001 0.000001"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+  </link>
+
+  <link name="Link_1">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/column.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/column.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Joint_1" type="revolute">
+
+    <origin rpy="3.14 0 4.71239" xyz="0 0 0.008"/>
+    <parent link="Link_0"/>
+    <child link="Link_1"/>
+    <axis xyz="0 0 1" />
+    <limit lower="-2.09439510239" upper="2.09439510239" effort="5.0" velocity="1.0" />
+
+  </joint>
+
+  <link name="Link_2">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_2.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_2.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Joint_2" type="revolute">
+
+    <origin rpy="0 0 3.94" xyz="0 0 -0.1655"/>
+    <parent link="Link_1"/>
+    <child link="Link_2"/>
+    <axis xyz="0 -1 0" />
+    <limit lower="-1.48" upper="1.48" effort="5.0" velocity="1.0" />
+
+  </joint>
+
+  <link name="Link_3">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_3.STL" scale="0.000001 0.000001 0.000001"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_3.STL" scale="0.000001 0.000001 0.000001"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Joint_3" type="revolute">
+
+    <origin rpy="-3.1416 0.0 0.0" xyz="0 -0.03675 -0.22112"/>
+    <parent link="Link_2"/>
+    <child link="Link_3"/>
+    <axis xyz="0 -1 0" />
+    <limit lower="-1.57" upper="1.57" effort="5.0" velocity="1.0" />
+
+  </joint>
+
+  <link name="Link_4">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Joint_4" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.03675 0.1275"/>
+    <parent link="Link_3"/>
+    <child link="Link_4"/>
+    <axis xyz="0 0 1" />
+    <limit lower="-1.57" upper="1.57" effort="5.0" velocity="1.0" />
+  </joint>
+
+  <link name="Hand">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_5.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Link_5.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Joint_5" type="revolute">
+
+    <origin rpy="3.14 0 0" xyz="0 0.023 0.095"/>
+    <parent link="Link_4"/>
+    <child link="Hand"/>
+    <axis xyz="0 1 0" />
+    <limit lower="-0.785" upper="0.785" effort="5.0" velocity="1.0" />
+
+  </joint>
+
+  <link name="Gripper_Servo_Gear">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Gripper_Servo_Gear.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Gripper_Servo_Gear.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Gripper_Servo_Gear_Joint" type="revolute">
+
+    <origin rpy="0 -3.14 -1.57" xyz="0.004 0.010 -0.065"/>
+    <parent link="Hand"/>
+    <child link="Gripper_Servo_Gear"/>
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.39626" effort="5.0" velocity="10.0" />
+
+  </joint>
+
+  <link name="Tip_Gripper_Servo">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Tip_Gripper_Servo.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Tip_Gripper_Servo.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Tip_Gripper_Servo_Joint" type="revolute">
+
+    <origin rpy="3.14 -1.57 0.0" xyz="-0.039906 -0.004 -0.0027473"/>
+    <parent link="Gripper_Servo_Gear"/>
+    <child link="Tip_Gripper_Servo"/>
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.39626" effort="5.0" velocity="10.0" />
+
+  </joint>
+
+  <link name="Gripper_Idol_Gear">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Gripper_Idol_Gear.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Gripper_Idol_Gear.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Gripper_Idol_Gear_Joint" type="revolute">
+
+    <origin rpy="0.0 0.0 -1.57" xyz="0.002 0.038 -0.065"/>
+    <parent link="Hand"/>
+    <child link="Gripper_Idol_Gear"/>
+    <axis xyz="0 1 0" />
+    <limit lower="-1.39626" upper="1.39626" effort="5.0" velocity="10.0" />
+
+  </joint>
+
+  <link name="Tip_Gripper_Idol">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Tip_Gripper_Idol.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Tip_Gripper_Idol.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Tip_Gripper_Idol_Joint" type="revolute">
+
+    <origin rpy="3.1416 0.5236 3.1416" xyz="-0.039906 -0.000125 -0.0027473"/>
+    <parent link="Gripper_Idol_Gear"/>
+    <child link="Tip_Gripper_Idol"/>
+    <axis xyz="0 1 0" />
+    <limit lower="-1.39626" upper="1.39626" effort="5.0" velocity="10.0" />
+
+  </joint>
+
+  <link name="Pivot_Arm_Gripper_Servo">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Pivot_Arm_Gripper_Servo.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Pivot_Arm_Gripper_Servo.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Pivot_Arm_Gripper_Servo_Joint" type="revolute">
+
+    <origin rpy="0 -3.14 -1.57" xyz="0.002 0.017 -0.085"/>
+    <parent link="Hand"/>
+    <child link="Pivot_Arm_Gripper_Servo"/>
+    <axis xyz="0 1 0" />
+    <limit lower="-1.39626" upper="1.39626" effort="5.0" velocity="10.0" />
+
+  </joint>
+
+  <link name="Pivot_Arm_Gripper_Idol">
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Pivot_Arm_Gripper_Idol.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/Pivot_Arm_Gripper_Idol.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Pivot_Arm_Gripper_Idol_Joint" type="revolute">
+
+    <origin rpy="0.0 3.14 -1.57" xyz="0.002 0.031 -0.085"/>
+    <parent link="Hand"/>
+    <child link="Pivot_Arm_Gripper_Idol"/>
+    <axis xyz="0 1 0" />
+    <limit lower="-1.39626" upper="1.39626" effort="5.0" velocity="10.0" />
+
+  </joint>
+
+  <link name="EE">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.005"/> 
+      </geometry>
+      <material name="Red">
+        <color rgba="0.1 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.005"/> 
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="EE_Joint" type="fixed">
+    <origin rpy="0.0 3.14 0.0" xyz="0.0 0.024 -0.130"/>
+    <parent link="Hand"/>
+    <child link="EE"/>
+  </joint>
+
+  <link name="camera">
+
+    <visual>
+      <origin rpy="1.57 -1.57 0" xyz="0.01242 0.01227 -0.01796"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/CAM.STL"/>
+      </geometry>
+      <material name="Orange">
+        <color rgba="0.945 0.353 0.133 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.57 -1.57 0" xyz="0.01242 0.01227 -0.01796"/>
+      <geometry>
+        <mesh filename="package://bcn3d_moveo_description/meshes/CAM.STL"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="Camera_Joint" type="fixed">
+    <origin rpy="-1.914 -0.017 1.897" xyz="0.072 0.233 0.123"/>
+    <parent link="Link_0"/>
+    <child link="camera"/>
+  </joint>
+
+  <link name="stand">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.03 0.18 0.02"/> 
+      </geometry>
+      <material name="Red">
+        <box rgba="0.03 0.18 0.02"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.03 0.01"/> 
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Stand_Joint" type="fixed">
+    <origin rpy="0.349066 0 0" xyz="0.01 0.1 0"/>
+    <parent link="camera"/>
+    <child link="stand"/>
+  </joint>
+
+</robot>

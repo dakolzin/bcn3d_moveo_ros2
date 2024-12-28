@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bcn3d_moveo">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import bcn3d_moveo urdf file -->
+    <xacro:include filename="$(find bcn3d_moveo_description)/models/bcn3d_moveo_joy.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="bcn3d_moveo.ros2_control.xacro" />
+
+
+    <xacro:bcn3d_moveo_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

@@ -1,0 +1,26 @@
+controller_names:
+  - manipulator_joint_trajectory_controller
+  - gripper_joint_trajectory_controller
+
+manipulator_joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+      - Joint_1
+      - Joint_2
+      - Joint_3
+      - Joint_4
+      - Joint_5
+
+gripper_joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+      - Gripper_Idol_Gear_Joint
+      - Gripper_Servo_Gear_Joint
+      - Tip_Gripper_Servo_Joint
+      - Tip_Gripper_Idol_Joint
+      - Pivot_Arm_Gripper_Idol_Joint
+      - Pivot_Arm_Gripper_Servo_Joint

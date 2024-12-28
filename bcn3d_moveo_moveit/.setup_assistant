@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: bcn3d_moveo_description
+    relative_path: models/bcn3d_moveo.urdf
+  srdf:
+    relative_path: config/bcn3d_moveo.srdf
+  package_settings:
+    author_name: danil
+    author_email: podkolzindanil@yandex.ru
+    generated_timestamp: 1706170918
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

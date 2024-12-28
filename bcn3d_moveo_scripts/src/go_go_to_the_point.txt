@@ -1,0 +1,48 @@
+#include <moveit/move_group_interface/move_group_interface.h>
+#include <geometry_msgs/msg/pose.hpp>
+#include <rclcpp/rclcpp.hpp>
+#include <chrono>
+
+bool move_to_pose(rclcpp::Node::SharedPtr node, moveit::planning_interface::MoveGroupInterface& move_group, const geometry_msgs::msg::Pose& target_pose, const std::string& message) {
+    RCLCPP_INFO(node->get_logger(), message.c_str());
+    move_group.setPoseTarget(target_pose);
+    move_group.setPlanningTime(10.0);
+    moveit::planning_interface::MoveGroupInterface::Plan pose_plan;
+    bool pose_success = (move_group.plan(pose_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+    RCLCPP_INFO(node->get_logger(), "Visualizing plan %s", pose_success ? "" : "FAILED");
+    if (pose_success) {
+        move_group.execute(pose_plan);
+    }
+    rclcpp::sleep_for(std::chrono::seconds(3));
+
+    return pose_success;
+}
+
+int main(int argc, char** argv) {
+    rclcpp::init(argc, argv);
+    auto node = rclcpp::Node::make_shared("simple_move_to_pose");
+    
+    moveit::planning_interface::MoveGroupInterface move_group(node, "arm");
+
+    geometry_msgs::msg::Pose target_pose;
+    float path_one[] = {-0.2146, -0.0696, 0.6540, 0.1131, -0.1547, 0.9247, 0.3289};
+    float path_two[] = {0.1073, -0.2674, 0.6339, 0.2009, 0.3872, -0.1020, 0.8941};
+    float path_three[] = {0.2162, -0.1543, 0.6170, -0.1581, -0.0982, 0.9811, 0.0534};
+    float path_four[] = {-0.1033, -0.2078, 0.6842, 0.3107, 0.2017, -0.6109, 0.6997};
+    float path_five[] = {-0.0799, -0.0988, 0.6803, -0.4313, -0.2070, 0.8042, -0.3527};
+
+
+    target_pose.position.x = path_four[0];
+    target_pose.position.y = path_four[1];
+    target_pose.position.z = path_four[2];
+  
+    target_pose.orientation.x = path_four[3];
+    target_pose.orientation.y = path_four[4];
+    target_pose.orientation.z = path_four[5];
+    target_pose.orientation.w = path_four[6]; 
+
+    move_to_pose(node, move_group, target_pose, "Moving to pose...");
+
+    rclcpp::shutdown();
+    return 0;
+}
