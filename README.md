@@ -133,7 +133,7 @@ ros2 launch bcn3d_moveo_moveit bcn3d_moveo_joy.launch.py
 ![Демонстрация](media/demo.gif "Вид с компьютера")
 
 #### Реальная среда
-![Демонстрация](media/real_demo.mp4 "Реальная среда")
+![Демонстрация](media/real_demo.gif "Реальная среда")
 
 
 Скрипт, в котором можно настроить кнопки "joystick_servo_example.cpp" (отдельные параметры Servo можно изменять в конфигурационном файле "bcn3d_moveo_sim_config.yaml").
